@@ -5,7 +5,6 @@ namespace App\Mail;
 use App\Models\Attendee;
 use App\Models\Event;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -29,7 +28,7 @@ class ConfirmSubscrption extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Conferma di iscrizione all\'evento ' . $this->event->title,
+            subject: 'Conferma di iscrizione all\'evento '.$this->event->title,
         );
     }
 

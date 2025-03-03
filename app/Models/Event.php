@@ -20,6 +20,6 @@ class Event extends Model
 
     public function attendees()
     {
-        return $this->belongsToMany(Attendee::class, );
+        return $this->belongsToMany(Attendee::class);
     }
 }

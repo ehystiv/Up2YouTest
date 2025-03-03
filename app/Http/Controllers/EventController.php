@@ -25,7 +25,7 @@ class EventController extends Controller
 
     public function store(StoreEventRequest $request)
     {
-        $event = new Event();
+        $event = new Event;
 
         $event->fill($request->validated());
         $event->save();

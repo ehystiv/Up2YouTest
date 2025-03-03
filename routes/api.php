@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 
-
 Route::apiResource('events', EventController::class);
 Route::post('subscribe', [EventController::class, 'subscribe']);
 Route::apiResource('attendees', AttendeeController::class);

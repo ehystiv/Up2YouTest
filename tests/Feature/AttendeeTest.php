@@ -2,14 +2,13 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class AttendeeTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic feature test example.
      */
@@ -48,13 +47,13 @@ class AttendeeTest extends TestCase
         $response = $this->withHeader('X-API-KEY', config('auth.api_key'))->post('/api/attendees', [
             'firstname' => 'Stefano',
             'lastname' => 'Maffulli',
-            'email' => 'test@test.com'
+            'email' => 'test@test.com',
         ]);
 
         $response->assertStatus(201)->assertJson([
             'firstname' => 'Stefano',
             'lastname' => 'Maffulli',
-            'email' => 'test@test.com'
+            'email' => 'test@test.com',
         ]);
     }
 
@@ -63,13 +62,13 @@ class AttendeeTest extends TestCase
         $response = $this->withHeader('X-API-KEY', config('auth.api_key'))->patch('/api/attendees/1', [
             'firstname' => 'Stefano',
             'lastname' => 'Maffulli',
-            'email' => 'test@test.com'
+            'email' => 'test@test.com',
         ]);
 
         $response->assertStatus(200)->assertJson([
             'firstname' => 'Stefano',
             'lastname' => 'Maffulli',
-            'email' => 'test@test.com'
+            'email' => 'test@test.com',
         ]);
     }
 
@@ -78,9 +77,9 @@ class AttendeeTest extends TestCase
         $response = $this->withHeader('X-API-KEY', config('auth.api_key'))->post('/api/attendees', [
             'firstname' => 'Stefano',
             'lastname' => 'Maffulli',
-            'email' => 'test@test.com'
+            'email' => 'test@test.com',
         ]);
 
-        $this->withHeader('X-API-KEY', config('auth.api_key'))->delete('/api/attendees/' . $response['id'])->assertStatus(204);
+        $this->withHeader('X-API-KEY', config('auth.api_key'))->delete('/api/attendees/'.$response['id'])->assertStatus(204);
     }
 }

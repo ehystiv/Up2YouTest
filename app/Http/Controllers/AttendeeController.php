@@ -22,7 +22,7 @@ class AttendeeController extends Controller
      */
     public function store(StoreAttendeeRequest $request)
     {
-        $attendee = new Attendee();
+        $attendee = new Attendee;
 
         $attendee->fill($request->validated());
         $attendee->save();

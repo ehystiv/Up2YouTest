@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class EventTest extends TestCase
@@ -88,7 +87,7 @@ class EventTest extends TestCase
             'max_attendees' => 20,
         ]);
 
-        $this->withHeader('X-API-KEY', config('auth.api_key'))->delete('/api/events/' . $response['id'])->assertStatus(204);
+        $this->withHeader('X-API-KEY', config('auth.api_key'))->delete('/api/events/'.$response['id'])->assertStatus(204);
     }
 
     public function test_subscribe(): void
@@ -115,14 +114,14 @@ class EventTest extends TestCase
             'event' => $eventRes['id'],
             'attendee' => 1,
         ])->assertStatus(400)->assertJson([
-                    'message' => 'Attendee is already subscribed'
-                ]);
+            'message' => 'Attendee is already subscribed',
+        ]);
 
         $this->withHeader('X-API-KEY', config('auth.api_key'))->post('/api/subscribe', [
             'event' => $eventRes['id'],
             'attendee' => 3,
         ])->assertStatus(400)->assertJson([
-                    'message' => 'Event is full'
-                ]);
+            'message' => 'Event is full',
+        ]);
     }
 }

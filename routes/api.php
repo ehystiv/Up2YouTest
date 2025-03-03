@@ -11,4 +11,5 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::apiResource('events', EventController::class);
+Route::post('subscribe', [EventController::class, 'subscribe']);
 Route::apiResource('attendees', AttendeeController::class);

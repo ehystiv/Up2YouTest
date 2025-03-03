@@ -17,4 +17,9 @@ class Event extends Model
         'location',
         'max_attendees',
     ];
+
+    public function attendees()
+    {
+        return $this->belongsToMany(User::class, );
+    }
 }

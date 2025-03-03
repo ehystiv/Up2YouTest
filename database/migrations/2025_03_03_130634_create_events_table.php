@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->text('description')->nullable();
             $table->dateTime(column: 'scheduled_at');
             $table->string(column: 'location');
-            $table->integer(column: 'max_attendes');
+            $table->integer(column: 'max_attendees');
 
             $table->timestamps();
         });

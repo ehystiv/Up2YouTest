@@ -34,7 +34,7 @@ class EventController extends Controller
         $event->fill($request->validated());
         $event->save();
 
-        return response()->json($event);
+        return response()->json($event, Response::HTTP_OK);
     }
 
     public function destroy(Event $event)
